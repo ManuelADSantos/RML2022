@@ -1,16 +1,14 @@
 // =============================================================
-// = Exemplo Lidares                            BotOlympics 2022
-// = JNDVasco - Rev 1.0
+// = Exemplo Lidares                                     RML2022
+// = Clube de Robótica UC - Rev 1.0
 // =
 // = Descrição:
 // = Este código permite testar os Lidares
 // =
 // =============================================================
+#include "bot_RML2022.h"
 
-#include <Arduino.h>
-#include "botFCTUC.h"
-
-botFCTUC jeff;
+bot_RML2022 jeff;
 
 void setup()
 {

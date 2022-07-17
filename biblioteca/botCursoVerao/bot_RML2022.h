@@ -1,5 +1,5 @@
 // =============================================================
-// = Header File botCursoVerao
+// = Header File bot_RML2022
 // =
 // =
 // = Hardware Mapping
@@ -35,8 +35,8 @@
 // =============================================================
 
 // Header guards
-#ifndef BOT_CURSOVERAO_H
-#define BOT_CURSOVERAO_H
+#ifndef BOT_RML2022_H
+#define BOT_RML2022_H
 
 //----------------------------------------------------------
 // Coment this line to disable the serial print
@@ -67,7 +67,7 @@
 #include <./external/VL53L0X.h>
 //----------------------------------------------------------
 
-class botCursoVerao
+class bot_RML2022
 {
 private:
     // Pin Declarations
@@ -124,9 +124,9 @@ private:
     //----------------------------------------------------------
 
 public:
-    botCursoVerao
+    bot_RML2022
 ();
-    ~botCursoVerao
+    ~bot_RML2022
 ();
 
     void begin(bool M1 = true, bool M2 = true);

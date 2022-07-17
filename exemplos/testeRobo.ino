@@ -1,13 +1,20 @@
-#include <Arduino.h>
-#include "botFCTUC.h"
+// =============================================================
+// = Exemplo Teste Completo                              RML2022
+// = Clube de Robótica UC - Rev 1.0
 
-botFCTUC jeff;
+// = Descrição:
+// = Este código permite testar o Sensor de Cor
+// =
+// =============================================================
+#include "botCursoVerao.h"
+
+bot_RML2022 jeff;
 
 void setup()
 {
     jeff.begin(false, false);
     Serial.begin(9600);
-    Serial.println("BOT FCTUC");
+    Serial.println("BOT RML2022");
     jeff.waitStart();
 }
 

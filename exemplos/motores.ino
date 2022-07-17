@@ -1,7 +1,14 @@
-#include <Arduino.h>
-#include "botFCTUC.h"
+// =============================================================
+// = Exemplo Motores                                     RML2022
+// = Clube de Robótica UC - Rev 1.0
+// =
+// = Descrição:
+// = Este código permite testar os motores
+// =
+// =============================================================
+#include "botCursoVerao.h"
 
-botFCTUC jeff;
+bot_RML2022 jeff;
 
 void setup()
 {

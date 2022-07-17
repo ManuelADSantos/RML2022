@@ -1,16 +1,14 @@
 // =============================================================
-// = Exemplo Sensor de Cor                      BotOlympics 2022
-// = JNDVasco - Rev 1.0
-// =
+// = Exemplo Sensor de Cor                               RML2022
+// = Clube de Robótica UC - Rev 1.0
+
 // = Descrição:
 // = Este código permite testar o Sensor de Cor
 // =
 // =============================================================
+#include "botCursoVerao.h"
 
-#include <Arduino.h>
-#include "botFCTUC.h"
-
-botFCTUC jeff;
+bot_RML2022 jeff;
 
 uint16_t RGBC[4];
 

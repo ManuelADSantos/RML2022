@@ -1,6 +1,6 @@
 // =============================================================
-// = Exemplo Sensor de Chama                    BotOlympics 2022
-// = JNDVasco - Rev 1.0
+// = Exemplo Sensor de Chama                             RML2022
+// = Clube de Robótica UC - Rev 1.0
 // =
 // = Descrição:
 // = Este código permite ler os valores devolvidos pelo sensor
@@ -16,12 +16,11 @@
 // = detetar a chama
 // =
 // =============================================================
-#include <Arduino.h>
-#include "botFCTUC.h"
+#include "botCursoVerao.h"
 
 const int flameTreshold = 300; // Altera este valor consoante o teu sensor!
 
-botFCTUC jeff;
+bot_RML2022 jeff;
 
 void setup()
 {

@@ -1,9 +1,9 @@
 // =============================================================
-// = Functions File botFTCUC                    BotOlympics 2022
-// = JNDVasco - Rev 1.0
+// = Functions File bot_RML2022                          RML2022
+// = Clube de Robótica UC - Rev 1.0
 // =
 // =============================================================
-#include "botCursoVerao.h"
+#include "bot_RML2022.h"
 
 /*!
   @brief
@@ -16,13 +16,13 @@
 // =============================================================
 
 // Constructor
-botCursoVerao::botCursoVerao()
+bot_RML2022::bot_RML2022()
 {
 
 } // End Constructor
 
 // Destructor
-botCursoVerao::~botCursoVerao()
+bot_RML2022::~bot_RML2022()
 {
 } // End Destructor
 
@@ -31,7 +31,7 @@ botCursoVerao::~botCursoVerao()
   @param   M1 If the motor 1 spins the correct way or not
   @param   M2 If the motor 2 spins the correct way or not
 */
-void botCursoVerao::begin(bool M1, bool M2)
+void bot_RML2022::begin(bool M1, bool M2)
 {
   // Setup Fan
   setupFan();
@@ -58,7 +58,7 @@ void botCursoVerao::begin(bool M1, bool M2)
 /*!
   @brief   Set up the Fan
 */
-void botCursoVerao::setupFan()
+void bot_RML2022::setupFan()
 {
   pinMode(_fanPin, OUTPUT);
   this->fanOff();
@@ -68,7 +68,7 @@ void botCursoVerao::setupFan()
   @brief Turn the fan on
   @note Control Logic is Inverted (1 = Off, 0 = On)
 */
-void botCursoVerao::fanOn()
+void bot_RML2022::fanOn()
 {
   digitalWrite(_fanPin, LOW);
 } // End fanOn
@@ -77,7 +77,7 @@ void botCursoVerao::fanOn()
   @brief Turn the fan off
   @note Control Logic is Inverted (1 = Off, 0 = On)
 */
-void botCursoVerao::fanOff()
+void bot_RML2022::fanOff()
 {
   digitalWrite(_fanPin, HIGH);
 } // End fanOff
@@ -89,7 +89,7 @@ void botCursoVerao::fanOff()
 /*!
   @brief   Set up the Button
 */
-void botCursoVerao::setupButton()
+void bot_RML2022::setupButton()
 {
   pinMode(_buttonPin, INPUT);
 }
@@ -97,9 +97,9 @@ void botCursoVerao::setupButton()
 /*!
   @brief   Waits in a infinite loop until the button is pressed to exit
 */
-void botCursoVerao::waitStart()
+void bot_RML2022::waitStart()
 {
-  DEBUG_PRINTLN("[INFO] - botCursoVerao Waiting to start!");
+  DEBUG_PRINTLN("[INFO] - bot_RML2022 Waiting to start!");
 
   while (!digitalRead(_buttonPin))
   {
@@ -111,14 +111,14 @@ void botCursoVerao::waitStart()
     }
   }
 
-  DEBUG_PRINTLN("[INFO] - botCursoVerao Is starting!");
+  DEBUG_PRINTLN("[INFO] - bot_RML2022 Is starting!");
 }
 
 /*!
   @brief   Read the button status
   @return  The button Status
 */
-bool botCursoVerao::readButton()
+bool bot_RML2022::readButton()
 {
   return digitalRead(_buttonPin);
 }
@@ -129,7 +129,7 @@ bool botCursoVerao::readButton()
 /*!
   @brief   Set up the Buzzer
 */
-void botCursoVerao::setupBuzzer()
+void bot_RML2022::setupBuzzer()
 {
   pinMode(_buzzerPin, OUTPUT);
   this->buzzerPlay(0);
@@ -138,7 +138,7 @@ void botCursoVerao::setupBuzzer()
   @brief   Play a sound on the buzzer
   @param   Val Tone to be played
 */
-void botCursoVerao::buzzerPlay(uint8_t val)
+void bot_RML2022::buzzerPlay(uint8_t val)
 {
   analogWrite(_buzzerPin, val);
 }
@@ -149,7 +149,7 @@ void botCursoVerao::buzzerPlay(uint8_t val)
 /*!
   @brief   Set up the neopixel
 */
-void botCursoVerao::setupNeopixel()
+void bot_RML2022::setupNeopixel()
 {
   pinMode(_neopixelPin, OUTPUT);
 
@@ -167,7 +167,7 @@ void botCursoVerao::setupNeopixel()
   @param   Green Red Amount 0 -> 255
   @param   Blue Red Amount 0 -> 255
 */
-void botCursoVerao::pixelSetColor(uint8_t Red, uint8_t Green, uint8_t Blue)
+void bot_RML2022::pixelSetColor(uint8_t Red, uint8_t Green, uint8_t Blue)
 {
   this->_pixel->setPixelColor(0, this->_pixel->Color(Red, Green, Blue)); // (pixelID, cor)
   this->_pixel->show();
@@ -176,7 +176,7 @@ void botCursoVerao::pixelSetColor(uint8_t Red, uint8_t Green, uint8_t Blue)
   @brief   Set the color to a given R G & B Values
   @param   Brightness Brightness Amount 0 -> 255
 */
-void botCursoVerao::pixelSetBrightness(uint8_t Brightness)
+void bot_RML2022::pixelSetBrightness(uint8_t Brightness)
 {
   this->_pixel->setBrightness(Brightness);
 }
@@ -186,7 +186,7 @@ void botCursoVerao::pixelSetBrightness(uint8_t Brightness)
 /*!
   @brief   Set up the flame sensor
 */
-void botCursoVerao::setupFlame()
+void bot_RML2022::setupFlame()
 {
   pinMode(_flameSensor, INPUT);
 }
@@ -195,7 +195,7 @@ void botCursoVerao::setupFlame()
   @brief   Get the sensor value from the flame sensor
   @return  The flame sensor value 0 -> 1023
 */
-uint16_t botCursoVerao::getFlame()
+uint16_t bot_RML2022::getFlame()
 {
   return analogRead(_flameSensor);
 }
@@ -203,7 +203,7 @@ uint16_t botCursoVerao::getFlame()
 /*!
   @brief   Print the current value of the flame sensor
 */
-void botCursoVerao::printFlame()
+void bot_RML2022::printFlame()
 {
   DEBUG_PRINTLN("Flame Sensor: " + String(this->getFlame()));
 }
@@ -215,7 +215,7 @@ void botCursoVerao::printFlame()
   @brief   Set up the color sensor
   @return  True if sucessful, false if not setup
 */
-bool botCursoVerao::setupColorSensor()
+bool bot_RML2022::setupColorSensor()
 {
   _colorSensor = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_24MS, TCS34725_GAIN_1X);
   return _colorSensor.begin();
@@ -232,21 +232,21 @@ bool botCursoVerao::setupColorSensor()
  *  @param  RGBC[3]
  *          Clear channel value
  */
-void botCursoVerao::getColor(uint16_t RGBC[])
+void bot_RML2022::getColor(uint16_t RGBC[])
 {
   _colorSensor.getRawData(&RGBC[0], &RGBC[1], &RGBC[2], &RGBC[3]);
 }
 /*!
  *  @brief Enable the color Sensor
  */
-void botCursoVerao::enableColorSensor()
+void bot_RML2022::enableColorSensor()
 {
   _colorSensor.enable();
 }
 /*!
  *  @brief Disable the color Sensor
  */
-void botCursoVerao::disableColorSensor()
+void bot_RML2022::disableColorSensor()
 {
   _colorSensor.disable();
 }
@@ -266,7 +266,7 @@ void botCursoVerao::disableColorSensor()
 /*!
   @brief   Set up the motors
 */
-void botCursoVerao::setupMotores(bool isMotor1Correct = true, bool isMotor2Correct = true)
+void bot_RML2022::setupMotores(bool isMotor1Correct = true, bool isMotor2Correct = true)
 {
   this->_isMotor1Correct = isMotor1Correct;
   this->_isMotor2Correct = isMotor2Correct;
@@ -283,7 +283,7 @@ void botCursoVerao::setupMotores(bool isMotor1Correct = true, bool isMotor2Corre
   @param   pwm The desired PWM for the motor, accepts value between
                and only between -255 to 255
 */
-void botCursoVerao::moveMotor1(int16_t pwm) // aceita valores entre -255 e 255
+void bot_RML2022::moveMotor1(int16_t pwm) // aceita valores entre -255 e 255
 {
 
   pwm = constrain(pwm, (-1 * _maxPwm), _maxPwm);
@@ -329,7 +329,7 @@ void botCursoVerao::moveMotor1(int16_t pwm) // aceita valores entre -255 e 255
   @param   pwm The desired PWM for the motor, accepts value between
                and only between -255 to 255
 */
-void botCursoVerao::moveMotor2(int16_t pwm) // aceita valores entre -255 e 255
+void bot_RML2022::moveMotor2(int16_t pwm) // aceita valores entre -255 e 255
 {
   pwm = constrain(pwm, -1 * _maxPwm, _maxPwm);
 
@@ -376,7 +376,7 @@ void botCursoVerao::moveMotor2(int16_t pwm) // aceita valores entre -255 e 255
   @param   pwmM2 The desired PWM for motor 2, accepts value between
                and only between -255 to 255
 */
-void botCursoVerao::move(int16_t pwmM1, int16_t pwmM2)
+void bot_RML2022::move(int16_t pwmM1, int16_t pwmM2)
 {
   this->moveMotor1(pwmM1);
   this->moveMotor2(pwmM2);
@@ -385,7 +385,7 @@ void botCursoVerao::move(int16_t pwmM1, int16_t pwmM2)
 /*!
   @brief   Bring Motors to a stop, this blocks the code for 50 milliseconds
 */
-void botCursoVerao::stopMotors()
+void bot_RML2022::stopMotors()
 {
   this->move(0, 0);
   delay(50);
@@ -396,7 +396,7 @@ void botCursoVerao::stopMotors()
 /*!
   @brief   Setup the lidar
 */
-void botCursoVerao::setupLidar()
+void bot_RML2022::setupLidar()
 {
   pinMode(_xshutLeft, OUTPUT);
   pinMode(_xshutFront, OUTPUT);
@@ -439,7 +439,7 @@ void botCursoVerao::setupLidar()
 /*!
   @brief   Set the LiDAR adress
 */
-void botCursoVerao::setAddressLidar(VL53L0X &LIDAR, uint8_t new_addr)
+void bot_RML2022::setAddressLidar(VL53L0X &LIDAR, uint8_t new_addr)
 {
   LIDAR.setAddress(new_addr);
 }
@@ -451,7 +451,7 @@ void botCursoVerao::setAddressLidar(VL53L0X &LIDAR, uint8_t new_addr)
            DIREITA ou 3 Lidar direito |
   @return  the distance value
 */
-uint16_t botCursoVerao::lidarGetDistance(uint8_t lidarLocation)
+uint16_t bot_RML2022::lidarGetDistance(uint8_t lidarLocation)
 {
   uint16_t returnDist;
 
@@ -494,7 +494,7 @@ uint16_t botCursoVerao::lidarGetDistance(uint8_t lidarLocation)
 /*!
   @brief   Print all the lidar distances
 */
-void botCursoVerao::lidarPrint()
+void bot_RML2022::lidarPrint()
 {
   DEBUG_PRINT("Esquerda: ");
   DEBUG_PRINT(this->lidarGetDistance(ESQUERDA));
@@ -507,7 +507,7 @@ void botCursoVerao::lidarPrint()
 /*!
   @brief   Print all the detected I2C devices
 */
-void botCursoVerao::printI2C()
+void bot_RML2022::printI2C()
 {
   Serial.println("I2C scanner. Scanning ...");
   byte count = 0;
