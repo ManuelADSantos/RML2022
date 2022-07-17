@@ -6,7 +6,7 @@
 // = Este código permite testar o Sensor de Cor
 // =
 // =============================================================
-#include "botCursoVerao.h"
+#include "bot_RML2022.h"
 
 bot_RML2022 jeff;
 

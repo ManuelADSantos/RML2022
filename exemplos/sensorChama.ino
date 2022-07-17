@@ -16,7 +16,7 @@
 // = detetar a chama
 // =
 // =============================================================
-#include "botCursoVerao.h"
+#include "bot_RML2022.h"
 
 const int flameTreshold = 300; // Altera este valor consoante o teu sensor!
 
